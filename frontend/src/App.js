@@ -1,25 +1,54 @@
 import React, { useEffect, useState } from "react";
-import logo from "./logo.svg";
-import "./App.scss";
-import { Button, message } from "antd";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+
+import { Button, Layout, message } from "antd";
+
 import Cart from "./components/Cart";
+import Sidebar from "./components/layout/sidebar";
+import ErrorPage from "./components/layout/errorPage";
+import Home from "./components/Home";
+import About from "./components/About";
+import Contact from "./components/contact";
 
-function App() {
+import "./App.scss";
+
+const { Header, Content, Sider } = Layout;
+
+const App = () => {
   return (
-    <div className="App">
-      <Cart />
-
-      <Button
-        type="primary"
-        size="large"
-        onClick={() => message.error("Hi there")}
-      >
-        Hello
-      </Button>
-
-      <Button type="primary">Button</Button>
-    </div>
+    <>
+      <BrowserRouter>
+        <Layout className="olms-main-container">
+          <Header
+            className="olms-header"
+            style={{
+              textAlign: "center",
+              color: "white",
+              // height: 84,
+              // paddingInline: 50,
+              // lineHeight: "64px",
+              // backgroundColor: "#7dbcea",
+            }}
+          >
+            Header
+          </Header>
+          <Layout className="olms-sidebar-header">
+            <Sidebar />
+            <Content className="olms-content">
+              <div className="olms-content-div">
+                <Routes>
+                  <Route path="/" element={<Home />} />
+                  <Route path="/leaves" element={<About />} />
+                  <Route path="/team" element={<Contact />} />
+                  <Route path="/leave/policy" element={<Cart />} />
+                </Routes>
+              </div>
+            </Content>
+          </Layout>
+        </Layout>
+      </BrowserRouter>
+    </>
   );
-}
+};
 
 export default App;
