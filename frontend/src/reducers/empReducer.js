@@ -1,63 +1,5 @@
-import React from "react";
-
-import { Row, Col, Space, Card, Avatar, Typography } from "antd";
-
-import holidayLogo from "../../static/images/holiday.svg";
-import calendarLogo from "../../static/images/calender.svg";
-import sickLogo from "../../static/images/sick.svg";
-
-import "./dashboard.scss";
-import EmployeeCard from "./employeeCard";
-
-const { Meta } = Card;
-const { Title } = Typography;
-
-const Dashboard = () => {
-  const emp1 = {
-    empID: "EMP3456",
-    firstName: "Rohit",
-    middleName: "",
-    lastName: "Verma",
-    email: "rohit.verma@gmail.com",
-    phoneNumber: 8765432109,
-    department: "IT",
-    empType: "Executive",
-    leave: {
-      paidLeave: {
-        count: 22,
-      },
-      sickLeave: {
-        count: 6,
-      },
-      optionalLeave: {
-        count: 3,
-      },
-    },
-    leaveHistory: [
-      {
-        leaveRequestID: "EMP3456_1",
-        empID: "EMP3456",
-        startDate: "05-07-2023",
-        endDate: "06-07-2023",
-        numberOfDays: 2,
-        leaveType: "paidLeave",
-        leaveReason: "Personal work",
-        status: "approved",
-      },
-      {
-        leaveRequestID: "EMP3456_2",
-        empID: "EMP3456",
-        startDate: "15-08-2023",
-        endDate: "15-08-2023",
-        numberOfDays: 1,
-        leaveType: "optionalLeave",
-        leaveReason: "Independence Day",
-        status: "rejected",
-      },
-    ],
-  };
-
-  const allEmp = [
+const initialState = {
+  allEmployees: [
     {
       empID: "EMP1235",
       firstName: "Alok",
@@ -151,7 +93,7 @@ const Dashboard = () => {
           startDate: "05-07-2023",
           endDate: "06-07-2023",
           numberOfDays: 2,
-          leaveType: "optionalLeave",
+          leaveType: "paidLeave",
           leaveReason: "Personal reasons",
           status: "rejected",
         },
@@ -184,7 +126,7 @@ const Dashboard = () => {
           startDate: "10-05-2023",
           endDate: "11-05-2023",
           numberOfDays: 2,
-          leaveType: "sickLeave",
+          leaveType: "paidLeave",
           leaveReason: "Family function",
           status: "approved",
         },
@@ -194,7 +136,7 @@ const Dashboard = () => {
           startDate: "20-06-2023",
           endDate: "22-06-2023",
           numberOfDays: 3,
-          leaveType: "paidLeave",
+          leaveType: "sickLeave",
           leaveReason: "Medical emergency",
           status: "pending",
         },
@@ -227,7 +169,7 @@ const Dashboard = () => {
           startDate: "05-07-2023",
           endDate: "06-07-2023",
           numberOfDays: 2,
-          leaveType: "optionalLeave",
+          leaveType: "paidLeave",
           leaveReason: "Personal work",
           status: "approved",
         },
@@ -237,7 +179,7 @@ const Dashboard = () => {
           startDate: "15-08-2023",
           endDate: "15-08-2023",
           numberOfDays: 1,
-          leaveType: "paidLeave",
+          leaveType: "optionalLeave",
           leaveReason: "Independence Day",
           status: "rejected",
         },
@@ -303,7 +245,7 @@ const Dashboard = () => {
           startDate: "05-02-2022",
           endDate: "06-02-2022",
           numberOfDays: 2,
-          leaveType: "sickLeave",
+          leaveType: "paidLeave",
           leaveReason: "Sick leave",
           status: "approved",
         },
@@ -342,67 +284,5 @@ const Dashboard = () => {
         },
       ],
     },
-  ];
-
-  return (
-    <div className="olms-dashboard">
-      {/* Top Row */}
-      <Row>
-        <Col span={24} className="top-row-col">
-          <Space
-            align="center"
-            direction="horizontal"
-            className="top-row-space"
-          >
-            <Card className="top-row-card" hoverable>
-              <Meta
-                avatar={<Avatar shape="square" src={holidayLogo} />}
-                title="Paid Leave"
-                description={`${emp1.leave.paidLeave.count} out of 24 Left`}
-              />
-            </Card>
-
-            <Card className="top-row-card" hoverable>
-              <Meta
-                avatar={<Avatar shape="square" src={sickLogo} size="large" />}
-                title="Sick Leave"
-                description={`${emp1.leave.sickLeave.count} out of 6 Left`}
-              />
-            </Card>
-
-            <Card className="top-row-card" hoverable>
-              <Meta
-                avatar={<Avatar shape="square" src={calendarLogo} />}
-                title="Optional Leave"
-                description={`${emp1.leave.optionalLeave.count} out of 4 Left`}
-              />
-            </Card>
-          </Space>
-        </Col>
-      </Row>
-
-      {/* Second Row */}
-      <Row className="dashboard-second-row">
-        <Col span={24}>
-          <Title level={3} className="dashboard-second-row-title">
-            Your Network
-          </Title>
-        </Col>
-
-        <Row>
-          {allEmp.map((emp) => {
-            // console.log("emp - ", emp);
-
-            return (
-              <Col span={8}>
-                <EmployeeCard key={emp?.empID} emp={emp} />
-              </Col>
-            );
-          })}
-        </Row>
-      </Row>
-    </div>
-  );
+  ],
 };
-
-export default Dashboard;

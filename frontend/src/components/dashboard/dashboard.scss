@@ -1,0 +1,27 @@
+.olms-dashboard {
+  .top-row-col {
+    display: flex;
+    justify-content: space-evenly;
+
+    .top-row-space {
+      gap: 40px !important;
+    }
+
+    .top-row-card {
+      width: 250;
+      margin-top: 16;
+      box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.2);
+    }
+  }
+
+  .dashboard-second-row {
+    margin-top: 20px;
+    background-color: #eaeefb;
+    padding: 40px;
+    border-radius: 10px;
+
+    .dashboard-second-row-title {
+      margin: 0px !important;
+    }
+  }
+}

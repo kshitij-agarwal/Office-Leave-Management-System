@@ -9,6 +9,7 @@ import ErrorPage from "./components/layout/errorPage";
 import Home from "./components/Home";
 import About from "./components/About";
 import Contact from "./components/contact";
+import Dashboard from "./components/dashboard/dashboard";
 
 import "./App.scss";
 
@@ -37,7 +38,7 @@ const App = () => {
             <Content className="olms-content">
               <div className="olms-content-div">
                 <Routes>
-                  <Route path="/" element={<Home />} />
+                  <Route index path="/" element={<Dashboard />} />
                   <Route path="/leaves" element={<About />} />
                   <Route path="/team" element={<Contact />} />
                   <Route path="/leave/policy" element={<Cart />} />
