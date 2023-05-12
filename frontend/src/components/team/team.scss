@@ -1,0 +1,45 @@
+.olms-team {
+  .calendar-row {
+    padding: 20px;
+    border: 1px solid red;
+
+    .my-calendar table thead tr > th:nth-child(1)::after {
+      content: "nday";
+    }
+
+    .my-calendar table thead tr > th:nth-child(2)::after {
+      content: "nday";
+    }
+
+    .my-calendar table thead tr > th:nth-child(3)::after {
+      content: "esday";
+    }
+
+    .my-calendar table thead tr > th:nth-child(4)::after {
+      content: "densday";
+    }
+
+    .my-calendar table thead tr > th:nth-child(5)::after {
+      content: "ursday";
+    }
+
+    .my-calendar table thead tr > th:nth-child(6)::after {
+      content: "iday";
+    }
+
+    .my-calendar table thead tr > th:nth-child(7)::after {
+      content: "turday";
+    }
+
+    .my-calendar {
+      border-radius: 10px;
+
+      .ant-picker-calendar-header {
+        padding-right: 20px !important;
+        background-color: #c2d2f7;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+      }
+    }
+  }
+}

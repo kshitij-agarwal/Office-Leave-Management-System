@@ -8,6 +8,7 @@ import { UserOutlined } from "@ant-design/icons";
 import holidayLogo from "../../static/images/holiday.svg";
 import calendarLogo from "../../static/images/calender.svg";
 import sickLogo from "../../static/images/sick.svg";
+import man1 from "../../static/images/man1.svg";
 
 import "./employeeCard.scss";
 const { Text, Link } = Typography;
@@ -34,7 +35,8 @@ const EmployeeCard = (props) => {
       {/* <Col span={24} className="employee-card-col"> */}
       <Row className="employee-card-name-row">
         <Col span={5} className="employee-icon">
-          <Avatar icon={<UserOutlined />} />
+          {/* <Avatar icon={<UserOutlined />} /> */}
+          <Avatar size="large" src={man1} />
         </Col>
 
         <Col span={14}>
@@ -72,7 +74,9 @@ const EmployeeCard = (props) => {
           </Space>
         </Col>
 
-        <Col span={6}>{logoCheck()}</Col>
+        <Col span={5} className="employee-icon">
+          {logoCheck()}
+        </Col>
       </Row>
     </div>
   );

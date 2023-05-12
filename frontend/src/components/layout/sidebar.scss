@@ -8,10 +8,17 @@
   border: 0.5px solid #c7c6ca;
   box-shadow: 0px 2px 7px -7px rgba(0, 0, 0, 0.11);
 
-  .new-leave-button {
+  .new-leave-button-div {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin-top: 20px;
+    margin-bottom: 30px;
+
+    .new-leave-button{
+      color: #2c72e9;
+      border-color: #2c72e9;
+    }
   }
 }

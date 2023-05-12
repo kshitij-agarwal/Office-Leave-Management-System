@@ -10,6 +10,7 @@ import Home from "./components/Home";
 import About from "./components/About";
 import Contact from "./components/contact";
 import Dashboard from "./components/dashboard/dashboard";
+import Team from "./components/team/team";
 
 import "./App.scss";
 
@@ -40,7 +41,7 @@ const App = () => {
                 <Routes>
                   <Route index path="/" element={<Dashboard />} />
                   <Route path="/leaves" element={<About />} />
-                  <Route path="/team" element={<Contact />} />
+                  <Route path="/team" element={<Team />} />
                   <Route path="/leave/policy" element={<Cart />} />
                 </Routes>
               </div>
