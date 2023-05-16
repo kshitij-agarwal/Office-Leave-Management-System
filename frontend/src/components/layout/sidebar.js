@@ -19,10 +19,10 @@ const { Header, Content, Sider } = Layout;
 const Sidebar = () => {
   let navigate = useNavigate();
 
-  const onSideBarMenuCick = (url) => {
-    console.log("in onSideBarMenuCick - ", url);
-    navigate(url);
-  };
+  // const onSideBarMenuCick = (url) => {
+  //   console.log("in onSideBarMenuCick - ", url);
+  //   navigate(url);
+  // };
 
   const sideBarMenu = [
     {

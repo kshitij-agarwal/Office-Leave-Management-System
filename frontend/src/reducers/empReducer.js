@@ -1,3 +1,5 @@
+import { ADD_ITEM, DELETE_ITEM, MODIFY_DATA } from "../actions/types";
+
 const initialState = {
   allEmployees: [
     {
@@ -285,4 +287,17 @@ const initialState = {
       ],
     },
   ],
+};
+
+export default (state = initialState, action) => {
+  switch (action.type) {
+    case MODIFY_DATA:
+      return {
+        ...state,
+        allEmployees: action.payload,
+      };
+
+    default:
+      return state;
+  }
 };

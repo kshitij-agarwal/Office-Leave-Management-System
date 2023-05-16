@@ -11,6 +11,7 @@ import About from "./components/About";
 import Contact from "./components/contact";
 import Dashboard from "./components/dashboard/dashboard";
 import Team from "./components/team/team";
+import Leave from "./components/leaves/leave";
 
 import "./App.scss";
 
@@ -26,6 +27,7 @@ const App = () => {
             style={{
               textAlign: "center",
               color: "white",
+              
               // height: 84,
               // paddingInline: 50,
               // lineHeight: "64px",
@@ -40,7 +42,7 @@ const App = () => {
               <div className="olms-content-div">
                 <Routes>
                   <Route index path="/" element={<Dashboard />} />
-                  <Route path="/leaves" element={<About />} />
+                  <Route path="/leaves" element={<Leave />} />
                   <Route path="/team" element={<Team />} />
                   <Route path="/leave/policy" element={<Cart />} />
                 </Routes>
