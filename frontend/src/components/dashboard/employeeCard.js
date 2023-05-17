@@ -20,6 +20,7 @@ const EmployeeCard = (props) => {
 
   const logoCheck = () => {
     // console.log("leave type - ", props.emp.leaveHistory[0].leaveType);
+    // console.log("props - ",props);
 
     if (props.emp.leaveHistory[0].leaveType === "paidLeave") {
       return <Avatar shape="square" src={holidayLogo} />;

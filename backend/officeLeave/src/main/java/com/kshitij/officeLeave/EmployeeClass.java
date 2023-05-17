@@ -3,7 +3,6 @@ package com.kshitij.officeLeave;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -16,7 +15,7 @@ import java.util.List;
 public class EmployeeClass {
 
 	@Id
-	private ObjectId id;
+	private String _id;
 	private String empID;
 	private String firstName;
 	private String middleName;

@@ -1,5 +1,7 @@
 .olms-leave {
   .top-row-col {
+    // margin-bottom: 20px;
+
     .top-row-space {
       display: flex;
       justify-content: center;
@@ -16,6 +18,14 @@
           padding: 10px !important;
         }
       }
+    }
+  }
+
+  .second-row-col {
+    padding: 20px;
+
+    .ant-tabs-nav-wrap {
+      left: 30px !important;
     }
   }
 }

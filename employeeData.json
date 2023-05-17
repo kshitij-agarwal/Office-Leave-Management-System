@@ -26,8 +26,7 @@
 				"startDate": "12-04-2023",
 				"endDate": "13-04-2023",
 				"numberOfDays": 2,
-				"leaveType": "",
-				"paidLeave": "",
+				"leaveType": "paidLeave",
 				"leaveReason": "Personal reasons",
 				"status": "pending"
 			}
@@ -60,8 +59,7 @@
 				"startDate": "08-06-2023",
 				"endDate": "10-06-2023",
 				"numberOfDays": 3,
-				"leaveType": "",
-				"paidLeave": "",
+				"leaveType": "paidLeave",
 				"leaveReason": "Family function",
 				"status": "approved"
 			}
@@ -94,8 +92,7 @@
 				"startDate": "05-07-2023",
 				"endDate": "06-07-2023",
 				"numberOfDays": 2,
-				"leaveType": "",
-				"paidLeave": "",
+				"leaveType": "paidLeave",
 				"leaveReason": "Personal reasons",
 				"status": "rejected"
 			}
@@ -128,8 +125,7 @@
 				"startDate": "10-05-2023",
 				"endDate": "11-05-2023",
 				"numberOfDays": 2,
-				"leaveType": "",
-				"paidLeave": "",
+				"leaveType": "sickLeave",
 				"leaveReason": "Family function",
 				"status": "approved"
 			},
@@ -139,8 +135,7 @@
 				"startDate": "20-06-2023",
 				"endDate": "22-06-2023",
 				"numberOfDays": 3,
-				"leaveType": "",
-				"sickLeave": "",
+				"leaveType": "paidLeave",
 				"leaveReason": "Medical emergency",
 				"status": "pending"
 			}
@@ -173,8 +168,7 @@
 				"startDate": "05-07-2023",
 				"endDate": "06-07-2023",
 				"numberOfDays": 2,
-				"leaveType": "",
-				"paidLeave": "",
+				"leaveType": "optionalLeave",
 				"leaveReason": "Personal work",
 				"status": "approved"
 			},
@@ -184,8 +178,7 @@
 				"startDate": "15-08-2023",
 				"endDate": "15-08-2023",
 				"numberOfDays": 1,
-				"leaveType": "",
-				"optionalLeave": "",
+				"leaveType": "paidLeave",
 				"leaveReason": "Independence Day",
 				"status": "rejected"
 			}
@@ -218,8 +211,7 @@
 				"startDate": "01-01-2022",
 				"endDate": "01-01-2022",
 				"numberOfDays": 1,
-				"leaveType": "",
-				"paidLeave": "",
+				"leaveType": "paidLeave",
 				"leaveReason": "Family Function",
 				"status": "approved"
 			}
@@ -252,10 +244,8 @@
 				"startDate": "05-02-2022",
 				"endDate": "06-02-2022",
 				"numberOfDays": 2,
-				"leaveType": "",
-				"paidLeave": "",
-				"leaveReason": "Sick ",
-				"leave": "",
+				"leaveType": "sickLeave",
+				"leaveReason": "Sick leave",
 				"status": "approved"
 			}
 		]
@@ -287,8 +277,7 @@
 				"startDate": "15-02-2022",
 				"endDate": "20-02-2022",
 				"numberOfDays": 6,
-				"leaveType": "",
-				"paidLeave": "",
+				"leaveType": "paidLeave",
 				"leaveReason": "Vacation",
 				"status": "approved"
 			}

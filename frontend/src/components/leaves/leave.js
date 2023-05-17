@@ -1,7 +1,19 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 
-import { Row, Col, Space, Card, Avatar, Typography, Tabs } from "antd";
+import {
+  Row,
+  Col,
+  Space,
+  Card,
+  Avatar,
+  Typography,
+  Tabs,
+  Form,
+  Select,
+} from "antd";
+
+import NewLeave from "./newLeave";
 
 import holidayLogo from "../../static/images/holiday.svg";
 import calendarLogo from "../../static/images/calender.svg";
@@ -19,7 +31,7 @@ const Leave = () => {
     {
       key: "/newleave",
       label: "New Leave",
-      children: "new Leave",
+      children: <NewLeave />,
     },
     {
       key: "/leavestatus",
@@ -28,10 +40,14 @@ const Leave = () => {
     },
     {
       key: "/balance",
-      label: "balance",
+      label: "Balance",
       children: "Balance",
     },
   ];
+
+  const onChange = (key) => {
+    console.log(key);
+  };
 
   return (
     <div className="olms-leave">
@@ -69,9 +85,13 @@ const Leave = () => {
           </Space>
         </Col>
       </Row>
-      Leave
+
       {/* Second Row */}
-      <Row></Row>
+      <Row>
+        <Col span={24} className="second-row-col">
+          <Tabs defaultActiveKey="1" items={tabItems} onChange={onChange} />
+        </Col>
+      </Row>
     </div>
   );
 };
