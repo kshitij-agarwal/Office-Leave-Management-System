@@ -12,10 +12,10 @@ public class OfficeLeaveApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(OfficeLeaveApplication.class, args);
 	}
-	
-//	@GetMapping("/root")
-//	public String apiRoot(){
-//		return "Hello, World";
-//	}
+
+	// @GetMapping("/root")
+	// public String apiRoot(){
+	// return "Hello, World";
+	// }
 
 }

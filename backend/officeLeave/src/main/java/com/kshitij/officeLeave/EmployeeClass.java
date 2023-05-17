@@ -1,6 +1,5 @@
 package com.kshitij.officeLeave;
 
-
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -15,7 +14,7 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 public class EmployeeClass {
-	
+
 	@Id
 	private ObjectId id;
 	private String empID;
@@ -28,6 +27,4 @@ public class EmployeeClass {
 	private String empType;
 	private Object leave;
 	private List<Object> leaveHistory;
-	
-	
 }

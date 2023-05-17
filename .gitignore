@@ -130,4 +130,4 @@ dist
 .pnp.*
 
 frontend/package-lock.json
-.vscode/settings.json
+.vscode/*
