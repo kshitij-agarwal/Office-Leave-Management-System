@@ -38,11 +38,11 @@ const Leave = () => {
       label: "Leave Status",
       children: "Leave Status",
     },
-    {
-      key: "/balance",
-      label: "Balance",
-      children: "Balance",
-    },
+    // {
+    //   key: "/balance",
+    //   label: "Balance",
+    //   children: "Balance",
+    // },
   ];
 
   const onChange = (key) => {

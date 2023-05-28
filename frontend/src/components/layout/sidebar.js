@@ -55,12 +55,19 @@ const Sidebar = () => {
     <>
       <Sider theme="light" className="olms-sidebar">
         <div className="new-leave-button-div">
-          <Button icon={<PlusOutlined />} className="new-leave-button">
+          <Button
+            icon={<PlusOutlined />}
+            className="new-leave-button"
+            onClick={() => {
+              navigate("/leaves");
+            }}
+          >
             <span className="new-leave-button-text">Add New Leave</span>
           </Button>
         </div>
 
         <Menu
+          className="sidebar-menu"
           defaultSelectedKeys="/"
           items={sideBarMenu}
           onClick={(e) => {

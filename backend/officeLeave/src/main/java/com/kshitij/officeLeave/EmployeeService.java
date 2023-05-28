@@ -23,6 +23,7 @@ public class EmployeeService {
 
 	public List<EmployeeClass> updateEmployee(List<EmployeeClass> employees) {
 		employeeRepository.insert(employees);
+		// employeeRepository.u
 		// employeeRepository.saveAll(employees);
 		return employees;
 	}

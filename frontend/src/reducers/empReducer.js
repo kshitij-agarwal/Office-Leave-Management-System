@@ -50,6 +50,7 @@ const initialState = {
 export default (state = initialState, action) => {
   switch (action.type) {
     case GET_EMPLOYEES:
+      console.log("Hi");
       return {
         ...state,
         allEmployees: action.payload,
