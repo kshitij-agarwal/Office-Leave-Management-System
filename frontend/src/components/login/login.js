@@ -1,7 +1,16 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 
-import { Form, Typography, Input, Row, Col, Space, Button } from "antd";
+import {
+  Form,
+  Typography,
+  Input,
+  Row,
+  Col,
+  Space,
+  Button,
+  message,
+} from "antd";
 import { UserOutlined, LockOutlined } from "@ant-design/icons";
 
 import { authenticateUser } from "../../actions/authAction";
@@ -15,6 +24,7 @@ const Login = () => {
   const [form] = Form.useForm();
 
   const [error, setError] = useState("");
+  const [messageApi, contextHolder] = message.useMessage();
 
   useEffect(() => {
     dispatch(
@@ -32,32 +42,46 @@ const Login = () => {
       data.username === "manager@gmail.com" &&
       data.password === "Manager@123"
     ) {
-      console.log("HI");
       setError("");
 
-      dispatch(
-        authenticateUser({
-          isAuthenticated: true,
-          userRole: "manager",
+      messageApi
+        .open({
+          type: "loading",
+          content: "Logging ...",
+          duration: 1.5,
         })
-      );
+        .then(() => message.success("Succesfully Logged-In", 2.5));
 
-      //
+      setTimeout(() => {
+        dispatch(
+          authenticateUser({
+            isAuthenticated: true,
+            userRole: "manager",
+          })
+        );
+      }, 3500);
     } else if (
       data.username === "employee@gmail.com" &&
       data.password === "Employee@123"
     ) {
-      console.log("Employee");
       setError("");
 
-      dispatch(
-        authenticateUser({
-          isAuthenticated: true,
-          userRole: "employee",
+      messageApi
+        .open({
+          type: "loading",
+          content: "Logging ...",
+          duration: 1.5,
         })
-      );
+        .then(() => message.success("Succesfully Logged-In", 2.5));
 
-      //
+      setTimeout(() => {
+        dispatch(
+          authenticateUser({
+            isAuthenticated: true,
+            userRole: "employee",
+          })
+        );
+      }, 3500);
     } else {
       console.log("Error");
       setError("Invalid Username or Password");
@@ -66,6 +90,8 @@ const Login = () => {
 
   return (
     <div className="login-container align-vertical-horizontal">
+      {contextHolder}
+
       <div className="main-container align-vertical-horizontal">
         <Row>
           <Col>
