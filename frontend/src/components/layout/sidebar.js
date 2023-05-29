@@ -26,7 +26,7 @@ const Sidebar = () => {
 
   const sideBarMenu = [
     {
-      key: "/",
+      key: "/dashboard",
       icon: <ProfileOutlined />,
       label: "Dashboard",
       // onClick: onSideBarMenuCick("/"),

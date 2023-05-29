@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+import { BrowserRouter, Routes, Route, useNavigate } from "react-router-dom";
 
 import { Button, Layout, message, Row, Col, Typography } from "antd";
 
@@ -20,9 +21,24 @@ const { Header, Content, Sider } = Layout;
 const { Title } = Typography;
 
 const App = () => {
+  let navigate = useNavigate();
+
+  let auth = useSelector((state) => state.auth.userAuth);
+  console.log("auth - ", auth);
+
+  useEffect(() => {
+    if (auth.isAuthenticated) {
+      navigate("/dashboard");
+    }
+  }, [auth.isAuthenticated]);
+
   return (
     <>
-      <BrowserRouter>
+      <Routes>
+        <Route index path="/" element={<Login />} />
+      </Routes>
+
+      {auth.isAuthenticated && (
         <Layout className="olms-main-container">
           <Header className="olms-header">
             <Row>
@@ -38,16 +54,16 @@ const App = () => {
             <Content className="olms-content">
               <div className="olms-content-div">
                 <Routes>
-                  <Route index path="/" element={<Dashboard />} />
+                  <Route path="/dashboard" element={<Dashboard />} />
                   <Route path="/leaves" element={<Leave />} />
                   <Route path="/team" element={<Team />} />
-                  <Route path="/leave/policy" element={<Login />} />
+                  <Route path="/leave/policy" element={<Cart />} />
                 </Routes>
               </div>
             </Content>
           </Layout>
         </Layout>
-      </BrowserRouter>
+      )}
     </>
   );
 };
