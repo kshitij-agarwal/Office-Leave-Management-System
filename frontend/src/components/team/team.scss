@@ -1,6 +1,6 @@
 .olms-team {
   .calendar-row {
-    padding: 20px;
+    padding: 10px;
     // border: 1px solid red;
 
     .my-calendar table thead tr > th:nth-child(1)::after {
@@ -31,7 +31,13 @@
       content: "turday";
     }
 
+    .ant-badge-status-dot {
+      width: 8px !important;
+      height: 8px !important;
+    }
+
     .my-calendar {
+      margin-top: 10px;
       border-radius: 10px;
 
       .ant-picker-calendar-header {

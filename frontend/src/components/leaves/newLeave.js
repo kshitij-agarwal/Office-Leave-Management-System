@@ -11,7 +11,6 @@ import {
   Tabs,
   Form,
   Select,
-  Calendar,
   DatePicker,
   Input,
   Button,
@@ -87,8 +86,8 @@ const NewLeave = () => {
   };
 
   const onFromDateChange = (value, date) => {
-    // console.log("onFromDateChange data - ", value.format("DD-MM-YYYY"));
-    // console.log("date & value - ", value, date);
+    console.log("value & date- ", value, date);
+    console.log("date +1 - ", dayjs(value[0]).add(1, "day"));
 
     // console.log(
     //   "difference - ",
@@ -107,6 +106,7 @@ const NewLeave = () => {
   return (
     <div className="new-leave-component">
       <div className="new-leave-tab">
+        {/* Title Row */}
         <Row>
           <Space direction="vertical" className="new-leave-tab-space">
             <Title level={4} className="application-form">
@@ -117,6 +117,7 @@ const NewLeave = () => {
           </Space>
         </Row>
 
+        {/* Form Row */}
         <Row>
           <Col span={24}>
             <Form
@@ -131,6 +132,7 @@ const NewLeave = () => {
               // wrapperCol={{ span: 10 }}
             >
               <Row>
+                {/* First Col */}
                 <Col span={9}>
                   {/* Select Leave Type */}
                   <Form.Item
@@ -171,6 +173,7 @@ const NewLeave = () => {
                     />
                   </Form.Item>
 
+                  {/* Number of Days */}
                   <Form.Item
                     className="form-item-days"
                     name="days"
@@ -180,6 +183,7 @@ const NewLeave = () => {
                   </Form.Item>
                 </Col>
 
+                {/* Second Col */}
                 <Col span={14}>
                   {/* Addtional Details */}
                   <Form.Item
