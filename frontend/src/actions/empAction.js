@@ -7,6 +7,7 @@ const setLoading = (payload) => ({
   payload,
 });
 
+// Get employees
 export const getEmployees = () => async (dispatch) => {
   let apiEndPoint = "http://192.168.29.233:8080/api/v1/employees";
   dispatch(setLoading(true));
@@ -22,4 +23,22 @@ export const getEmployees = () => async (dispatch) => {
   } catch (err) {
     console.log("API Error - ", err.message);
   }
+
+  dispatch(setLoading(false));
+};
+
+export const updateEmployees = (data) => async (dispatch) => {
+  let apiEndPoint = "http://192.168.29.233:8080/api/v1/employees/" + data._id;
+  dispatch(setLoading(true));
+
+  // console.log("employee data - ", data);
+  // console.log("apiendpoiunt - ", apiEndPoint);
+
+  try {
+    const apiResponse = await axios.put(apiEndPoint, data);
+  } catch (err) {
+    console.log("API Error - ", err.message);
+  }
+
+  dispatch(setLoading(false));
 };

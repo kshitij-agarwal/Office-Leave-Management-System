@@ -7,7 +7,6 @@ import {
   Col,
   Space,
   Card,
-  Avatar,
   Typography,
   Tabs,
   Form,
@@ -16,27 +15,16 @@ import {
   DatePicker,
   Input,
   Button,
-  InputNumber,
 } from "antd";
-
-import holidayLogo from "../../static/images/holiday.svg";
-import calendarLogo from "../../static/images/calender.svg";
-import sickLogo from "../../static/images/sick.svg";
 
 import "./newLeave.scss";
 
 import { GET_EMPLOYEES } from "../../actions/types";
+import { updateEmployees } from "../../actions/empAction";
 
 const { Meta } = Card;
 const { Title, Text } = Typography;
 const { TextArea } = Input;
-
-const apiParams = {
-  leaveType: "",
-  fromDate: "",
-  toDate: "",
-  additionalDetails: "",
-};
 
 const NewLeave = () => {
   const dispatch = useDispatch();
@@ -45,9 +33,6 @@ const NewLeave = () => {
   const { RangePicker } = DatePicker;
 
   let allEmp = useSelector((state) => state.employee.allEmployees);
-
-  const [fromDate, setFromDate] = useState(0);
-  const [toDate, setToDate] = useState();
 
   const leaveTypeOptions = [
     {
@@ -65,17 +50,14 @@ const NewLeave = () => {
   ];
 
   const onFormSubmit = (data) => {
-    console.log("onFormSubmit Data - ", data);
-
-    // console.log(data.date[0].format("DD-MM-YYYY"));
+    // console.log("onFormSubmit Data - ", data);
 
     let emp1 = allEmp[0];
-    // console.log("len - ", emp1.leaveHistory.length);
     let leaveHistoryRecord = {
       leaveRequestID: `${emp1.empID}_${emp1.leaveHistory.length + 1}`,
       empID: emp1.empID,
-      startDate: data.date[0].format("DD-MM-YYYY"),
-      endDate: data.date[1].format("DD-MM-YYYY"),
+      startDate: data.date[0].format("YYYY-MM-DD"),
+      endDate: data.date[1].format("YYYY-MM-DD"),
       numberOfDays: data.days,
       leaveType: data.leaveType,
       leaveReason: data.additionalDetails,
@@ -83,58 +65,40 @@ const NewLeave = () => {
     };
 
     emp1.leaveHistory = [leaveHistoryRecord].concat(emp1.leaveHistory);
-    // console.log("emp1 -", emp1.leaveHistory);
 
     emp1.leave[`${leaveHistoryRecord.leaveType}`].count =
       emp1.leave[`${leaveHistoryRecord.leaveType}`].count -
       leaveHistoryRecord.numberOfDays;
 
-    console.log("emp1 -", emp1);
+    // allEmp[0] = emp1;
 
-    allEmp[0] = emp1;
+    // dispatch({
+    //   type: GET_EMPLOYEES,
+    //   payload: allEmp,
+    // });
 
-    console.log("allemp - ", allEmp);
+    dispatch(updateEmployees(emp1));
 
-    dispatch({
-      type: GET_EMPLOYEES,
-      payload: allEmp,
-    });
+    form.resetFields();
   };
 
   const onFormReset = () => {
     form.resetFields();
-
-    // apiParams.leaveType = "";
-    // apiParams.fromDate = "";
-    // apiParams.toDate = "";
-    // apiParams.additionalDetails = "";
   };
 
   const onFromDateChange = (value, date) => {
     // console.log("onFromDateChange data - ", value.format("DD-MM-YYYY"));
-    console.log("date & value - ", value, date);
-    console.log("fromdate true - ", fromDate ? true : false);
+    // console.log("date & value - ", value, date);
 
-    console.log(
-      "difference - ",
-      dayjs(value[1]).diff(dayjs(value[0]), "d") + 1
-    );
-
-    // setFromDate(dayjs(value[1]).diff(dayjs(value[0]), "d") + 1);
+    // console.log(
+    //   "difference - ",
+    //   dayjs(value[1]).diff(dayjs(value[0]), "d") + 1
+    // );
 
     form.setFieldsValue({
       days: dayjs(value[1]).diff(dayjs(value[0]), "d") + 1,
     });
   };
-
-  // const onToDateChange = (value, date) => {
-  //   console.log("onToDateChange data - ", value.format("DD-MM-YYYY"));
-  //   console.log("date & value - ", date, value);
-  //   apiParams.toDate = dayjs(date);
-  //   console.log("fromdate true - ", fromDate ? true : false);
-
-  //   setToDate(dayjs(date));
-  // };
 
   // const onTextAreaChange = (e) => {
   //   console.log("value - ", e.target.value);
@@ -160,6 +124,9 @@ const NewLeave = () => {
               form={form}
               layout="horizontal"
               onFinish={onFormSubmit}
+              initialValues={{
+                days: 0,
+              }}
               labelCol={{ span: 7 }}
               // wrapperCol={{ span: 10 }}
             >
@@ -173,6 +140,7 @@ const NewLeave = () => {
                     rules={[
                       {
                         required: true,
+                        message: "Please select Leave Type.",
                       },
                     ]}
                   >
@@ -192,6 +160,7 @@ const NewLeave = () => {
                     rules={[
                       {
                         required: true,
+                        message: "Please select the date.",
                       },
                     ]}
                   >
@@ -207,30 +176,8 @@ const NewLeave = () => {
                     name="days"
                     label="Total no. days"
                   >
-                    <Input
-                      className="number-of-days"
-                      defaultValue={fromDate}
-                      disabled
-                    />
+                    <Input className="number-of-days" disabled />
                   </Form.Item>
-
-                  {/* To Date */}
-                  {/* <Form.Item
-                    className="form-item-to-date"
-                    name="toDate"
-                    label="To Date"
-                    rules={[
-                      {
-                        required: true,
-                      },
-                    ]}
-                  >
-                    <RangePicker
-                      className="to-date-calendar"
-                      onChange={onToDateChange}
-                      // placement="bottomRight"
-                    />
-                  </Form.Item> */}
                 </Col>
 
                 <Col span={14}>
@@ -242,6 +189,7 @@ const NewLeave = () => {
                     rules={[
                       {
                         required: true,
+                        message: "Please enter the reason for Leave.",
                       },
                     ]}
                   >

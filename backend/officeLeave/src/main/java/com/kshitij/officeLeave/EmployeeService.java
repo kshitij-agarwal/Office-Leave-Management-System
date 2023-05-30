@@ -21,8 +21,8 @@ public class EmployeeService {
 		return employeeRepository.findById(id);
 	}
 
-	public List<EmployeeClass> updateEmployee(List<EmployeeClass> employees) {
-		employeeRepository.insert(employees);
+	public EmployeeClass updateEmployee(EmployeeClass employees) {
+		employeeRepository.save(employees);
 		// employeeRepository.u
 		// employeeRepository.saveAll(employees);
 		return employees;

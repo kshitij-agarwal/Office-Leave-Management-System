@@ -26,6 +26,7 @@ const { Title, Text } = Typography;
 
 const Leave = () => {
   let allEmp = useSelector((state) => state.employee.allEmployees);
+  let auth = useSelector((state) => state.auth.userAuth);
 
   const tabItems = [
     {
@@ -37,6 +38,7 @@ const Leave = () => {
       key: "/leavestatus",
       label: "Leave Status",
       children: "Leave Status",
+      disabled: auth.userRole !== "manager",
     },
     // {
     //   key: "/balance",

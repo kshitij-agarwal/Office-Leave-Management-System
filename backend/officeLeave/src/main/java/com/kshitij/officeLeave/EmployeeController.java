@@ -35,8 +35,10 @@ public class EmployeeController {
 		return new ResponseEntity<Optional<EmployeeClass>>(employeeService.getEmployeeById(id), HttpStatus.OK);
 	}
 
-	@PostMapping()
-	public ResponseEntity<List<EmployeeClass>> updateEmployeeData(@RequestBody List<EmployeeClass> employees) {
-		return new ResponseEntity<List<EmployeeClass>>(employeeService.updateEmployee(employees), HttpStatus.CREATED);
+	@PutMapping("/{id}")
+	public ResponseEntity<EmployeeClass> updateEmployeeData(
+			@RequestBody EmployeeClass employees,
+			@PathVariable("id") ObjectId id) {
+		return new ResponseEntity<EmployeeClass>(employeeService.updateEmployee(employees), HttpStatus.CREATED);
 	}
 }

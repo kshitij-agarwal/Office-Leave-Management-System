@@ -43,12 +43,12 @@ const Sidebar = () => {
       label: "Team",
       // onClick: onSideBarMenuCick("/team"),
     },
-    {
-      key: "/leave/policy",
-      icon: <SecurityScanOutlined />,
-      label: "Leave Policy",
-      // onClick: onSideBarMenuCick("/leave/policy"),
-    },
+    // {
+    //   key: "/leave/policy",
+    //   icon: <SecurityScanOutlined />,
+    //   label: "Leave Policy",
+    //   // onClick: onSideBarMenuCick("/leave/policy"),
+    // },
   ];
 
   return (
