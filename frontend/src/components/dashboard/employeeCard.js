@@ -1,9 +1,12 @@
 import React from "react";
 import dayjs from "dayjs";
-import relativeTime from "dayjs/plugin/relativeTime";
 
-import { Row, Col, Space, Card, Avatar, Typography } from "antd";
-import { UserOutlined } from "@ant-design/icons";
+import { Row, Col, Space, Tag, Avatar, Typography } from "antd";
+import {
+  CheckCircleOutlined,
+  ClockCircleOutlined,
+  CloseCircleOutlined,
+} from "@ant-design/icons";
 
 import holidayLogo from "../../static/images/holiday.svg";
 import calendarLogo from "../../static/images/calender.svg";
@@ -31,6 +34,40 @@ const EmployeeCard = (props) => {
     }
   };
 
+  const leaveStatusTag = () => {
+    if (props.emp.leaveHistory[0].status === "approved") {
+      return (
+        <Tag
+          icon={<CheckCircleOutlined />}
+          color="success"
+          className="leave-status-tag"
+        >
+          APPROVED
+        </Tag>
+      );
+    } else if (props.emp.leaveHistory[0].status === "pending") {
+      return (
+        <Tag
+          icon={<ClockCircleOutlined />}
+          color="warning"
+          className="leave-status-tag"
+        >
+          PENDING
+        </Tag>
+      );
+    } else if (props.emp.leaveHistory[0].status === "rejected") {
+      return (
+        <Tag
+          icon={<CloseCircleOutlined />}
+          color="error"
+          className="leave-status-tag"
+        >
+          REJECTED
+        </Tag>
+      );
+    }
+  };
+
   return (
     <div className="employee-card">
       {/* <Col span={24} className="employee-card-col"> */}
@@ -52,7 +89,10 @@ const EmployeeCard = (props) => {
       {/* </Col> */}
 
       <Row className="employee-leave-reason">
-        <Text strong>{props.emp.leaveHistory[0].leaveReason}</Text>
+        <Col span={24}>
+          <Text strong>{props.emp.leaveHistory[0].leaveReason}</Text>
+          {leaveStatusTag()}
+        </Col>
       </Row>
 
       <Row>

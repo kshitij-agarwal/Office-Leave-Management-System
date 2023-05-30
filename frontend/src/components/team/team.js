@@ -59,7 +59,7 @@ const Team = () => {
     <div className="olms-team">
       {/* Calender Section */}
       <Row className="calendar-row">
-        <Space direction="horizontal">
+        <Space direction="horizontal" className="badge-space">
           <Badge status="success" text="Approved" />
           <Badge status="warning" text="Pending" />
           <Badge status="error" text="Rejected" />

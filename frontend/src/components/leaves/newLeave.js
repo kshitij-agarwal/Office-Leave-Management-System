@@ -177,7 +177,7 @@ const NewLeave = () => {
                   <Form.Item
                     className="form-item-days"
                     name="days"
-                    label="Total no. days"
+                    label="Total days"
                   >
                     <Input className="number-of-days" disabled />
                   </Form.Item>

@@ -14,6 +14,7 @@ import {
 } from "antd";
 
 import NewLeave from "./newLeave";
+import LeaveApproval from "./leaveApproval";
 
 import holidayLogo from "../../static/images/holiday.svg";
 import calendarLogo from "../../static/images/calender.svg";
@@ -33,11 +34,12 @@ const Leave = () => {
       key: "/newleave",
       label: "New Leave",
       children: <NewLeave />,
+      disabled: auth.userRole === "manager",
     },
     {
       key: "/leavestatus",
-      label: "Leave Status",
-      children: "Leave Status",
+      label: "Leave Approval",
+      children: <LeaveApproval />,
       disabled: auth.userRole !== "manager",
     },
     // {
