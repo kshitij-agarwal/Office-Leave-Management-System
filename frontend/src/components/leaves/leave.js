@@ -93,7 +93,13 @@ const Leave = () => {
       {/* Second Row */}
       <Row>
         <Col span={24} className="second-row-col">
-          <Tabs defaultActiveKey="1" items={tabItems} onChange={onChange} />
+          <Tabs
+            defaultActiveKey={
+              auth.userRole === "manager" ? "/leavestatus" : "/newleave"
+            }
+            items={tabItems}
+            onChange={onChange}
+          />
         </Col>
       </Row>
     </div>

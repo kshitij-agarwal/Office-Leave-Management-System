@@ -38,7 +38,7 @@ const LeaveApproval = () => {
     let leaveHistory = emp.leaveHistory;
 
     for (let i = 0; i < leaveHistory.length; i++) {
-      const element = leaveHistory[i];
+      const element = leaveHistory[0];
 
       if (element.status === "pending") {
         approvalPending.push(emp);
@@ -80,7 +80,7 @@ const LeaveApproval = () => {
         <div>
           <Collapse accordion>
             {approvalPending.map((i, index) => {
-              // console.log("i - ", i);
+              console.log("i - ", i);
 
               return (
                 <Panel

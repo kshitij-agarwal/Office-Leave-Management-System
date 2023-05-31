@@ -40,7 +40,7 @@ const Sidebar = () => {
     {
       key: "/team",
       icon: <TeamOutlined />,
-      label: "Team",
+      label: "Calendar",
       // onClick: onSideBarMenuCick("/team"),
     },
     // {
